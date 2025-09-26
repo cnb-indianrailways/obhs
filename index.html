@@ -1,44 +1,12 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>ID Redirect</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <!-- Fallback if JS off: 5s baad backend root (params ke bina) par bhej dega -->
-  <meta http-equiv="refresh" content="5;url=https://script.google.com/macros/s/AKfycbxFQ9l02f-CA3wPLtQXvdPQpXRgyr5_z3B96U6U7ubyKxWa7Rw_L3ph75haOcwaS8rR/exec" />
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-         margin:0;display:grid;place-items:center;min-height:100svh;background:#f6f8fa;color:#24292e}
-    .card{padding:20px 24px;border:1px solid #d0d7de;border-radius:12px;background:#fff;
-          box-shadow:0 2px 16px rgba(0,0,0,.06);max-width:520px}
-    .muted{color:#57606a;font-size:14px}
-    a.button{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:8px;
-             background:#0969da;color:#fff;text-decoration:none}
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h2>Redirecting…</h2>
-    <p class="muted">If it doesn’t open automatically, use the button below.</p>
-    <p><a id="fallback" class="button" href="#">Open Now</a></p>
-    <p class="muted">This URL is permanent. You can bookmark it safely.</p>
-  </div>
-
-  <script>
-    // 👉 EDIT ONLY THIS LINE WHEN BACKEND CHANGES:
-    const BACKEND_BASE = "https://script.google.com/macros/s/AKfycbxFQ9l02f-CA3wPLtQXvdPQpXRgyr5_z3B96U6U7ubyKxWa7Rw_L3ph75haOcwaS8rR/exec";
-
-    // Preserve full query (?empId=..., &debug=1, etc.)
-    const src = new URL(location.href);
-    const target = new URL(BACKEND_BASE);
-    target.search = src.search;
-    target.hash   = src.hash;  // optional
-
-    // Button + auto redirect (history-safe)
-    document.getElementById('fallback').href = target.toString();
-    setTimeout(() => location.replace(target.toString()), 10);
-  </script>
-</body>
-</html>
-
-
+<meta charset="utf-8">
+<title>.</title>
+<!-- ZERO-UI instant redirect (preserve ?empId=... & #hash) -->
+<script>
+  location.replace("https://script.google.com/macros/s/AKfycbxFQ9l02f-CA3wPLtQXvdPQpXRgyr5_z3B96U6U7ubyKxWa7Rw_L3ph75haOcwaS8rR/exec"
+                   + location.search + location.hash);
+</script>
+<noscript>
+  <!-- JS off fallback (query preserve नहीं होगी, but instant jump) -->
+  <meta http-equiv="refresh" content="0;url=https://script.google.com/macros/s/AKfycbxFQ9l02f-CA3wPLtQXvdPQpXRgyr5_z3B96U6U7ubyKxWa7Rw_L3ph75haOcwaS8rR/exec">
+</noscript>
